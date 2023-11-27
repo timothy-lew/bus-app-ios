@@ -23,8 +23,7 @@ struct SearchView: View {
     @State private var roadName = ""
     
     @State var busStops: [BusStop]
-    @State var buses: BusArrival
-    
+ 
     @State private var showAlert = false
     @State private var alertMessage = ""
     
@@ -38,11 +37,7 @@ struct SearchView: View {
                                 await getBusStopByRoadName()
                             }
                         }
-//                        .onChange(of: roadName) {
-//                            Task {
-//                                await getBusStopByRoadName()
-//                            }
-//                        }
+                        // .onChange
                         .disableAutocorrection(true)
                 }
             }
@@ -53,12 +48,7 @@ struct SearchView: View {
             List {
                 ForEach(busStops, id: \.self) { busStop in
                     NavigationLink {
-                        BusView(busStop: busStop, buses: buses)
-//                            .onAppear(perform: {
-//                                Task {
-//                                    await getBusStopByCode(for: busStop)
-//                                }
-//                            })
+                        BusView(busStop: busStop)
                     } label : {
                         BusStopView(busStop: busStop)
                     }
@@ -71,34 +61,15 @@ struct SearchView: View {
         }
     }
     
-    // not used
-    func getBusStopByCode(for busStop: BusStop) async {
-        // TODO add config
-        // url
-        let url = URL(string: "http://localhost:3000/busstop/number/\(busStop.busStopCode)")!
-        
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            
-            buses = try JSONDecoder().decode(BusArrival.self, from: data)
-        } catch {
-            print("GET request failed: \(error.localizedDescription)")
-            print(String(describing: error))
-        }
-    }
-    
     func getBusStopByRoadName() async {
-        print("HI")
         // TODO add config
         // url
         let url = URL(string: "http://localhost:3000/busstop/name/\(roadName)")!
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
-            print(data)
             // response is array of json. [{BusStop}, {BusStop}]
             let busStopsDecoded = try JSONDecoder().decode([BusStop].self, from: data)
-//            print(type(of: busStops))
             
             busStops = busStopsDecoded
         } catch {
@@ -112,20 +83,9 @@ struct SearchView: View {
 }
 
 #Preview {
-    let dummyBusStops: [BusStop] = [
+    let busStops: [BusStop] = [
             BusStop(busStopCode: "123", roadName: "Woodlands", description: "Some Description", latitude: 1, longitude: 2),
         ]
     
-    let busInfo1: BusInfo = BusInfo(originCode: "46009", destinationCode: "46009", estimatedArrival: "This is arrival", latitude: "0.0", longitude: "0.0", visitNumber: "1", load: "SEA", feature: "WAB", type: "DD")
-    
-    let busInfo2: BusInfo = BusInfo(originCode: "46009", destinationCode: "46009", estimatedArrival: "This is arrival", latitude: "0.0", longitude: "0.0", visitNumber: "1", load: "SEA", feature: "WAB", type: "DD")
-    
-    let busInfo3: BusInfo = BusInfo(originCode: "46009", destinationCode: "46009", estimatedArrival: "This is arrival", latitude: "0.0", longitude: "0.0", visitNumber: "1", load: "SEA", feature: "WAB", type: "DD")
-    
-    let busService: BusService = BusService(serviceNo: "962", operatorName: "SMRT", nextBus: busInfo1, nextBus2: busInfo2, nextBus3: busInfo3)
-    
-    let buses: BusArrival = BusArrival(odataMetadata: "test", busStopCode: "43911", services: [busService])
-    
-    return SearchView(busStops: dummyBusStops, buses: buses)
-//    SearchView()
+    return SearchView(busStops: busStops)
 }

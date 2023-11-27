@@ -30,7 +30,7 @@ struct BusStopView: View {
 }
 
 #Preview {
-    let dummyBusStop = BusStop(busStopCode: "123", roadName: "Woodlands", description: "Some Description", latitude: 1, longitude: 2)
+    let busStop = BusStop(busStopCode: "123", roadName: "Woodlands", description: "Some Description", latitude: 1, longitude: 2)
         
-    return BusStopView(busStop: dummyBusStop)
+    return BusStopView(busStop: busStop)
 }

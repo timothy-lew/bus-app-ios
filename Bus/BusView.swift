@@ -9,7 +9,10 @@ import SwiftUI
 
 struct BusView: View {
     @State var busStop: BusStop
-    @State var buses: BusArrival
+    @State private var buses: BusArrival = BusArrival(odataMetadata: "", busStopCode: "", services: [])
+    
+    @State private var showAlert = false
+    @State private var alertMessage = ""
     
     var body: some View {
         VStack {
@@ -46,7 +49,9 @@ struct BusView: View {
                     }
                 }
             }
-            
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Server Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
         }
     }
     
@@ -91,12 +96,15 @@ struct BusView: View {
         } catch {
             print("GET request failed: \(error.localizedDescription)")
             print(String(describing: error))
+            
+            showAlert = true
+            alertMessage = "Server error: \(error.localizedDescription)"
         }
     }
 }
 
 #Preview {
-    let dummyBusStop: BusStop = BusStop(busStopCode: "123", roadName: "Woodlands", description: "Some Description", latitude: 1, longitude: 2)
+    let busStop: BusStop = BusStop(busStopCode: "123", roadName: "Woodlands", description: "Some Description", latitude: 1, longitude: 2)
     
     let busInfo1: BusInfo = BusInfo(originCode: "46009", destinationCode: "46009", estimatedArrival: "This is arrival", latitude: "0.0", longitude: "0.0", visitNumber: "1", load: "SEA", feature: "WAB", type: "DD")
     
@@ -108,5 +116,5 @@ struct BusView: View {
     
     let buses: BusArrival = BusArrival(odataMetadata: "test", busStopCode: "43911", services: [busService])
         
-    return BusView(busStop: dummyBusStop, buses: buses)
+    return BusView(busStop: busStop)
 }

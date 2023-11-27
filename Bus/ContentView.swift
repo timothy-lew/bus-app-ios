@@ -9,19 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var busStops = [BusStop]()
-//    @State private var buses: BusArrival
-    @State private var buses: BusArrival = BusArrival(odataMetadata: "", busStopCode: "", services: [])
     
     var body: some View {
         NavigationStack {
             TabView {
-                BookmarkView(busStops: busStops, buses: buses)
+                BookmarkView(busStops: busStops)
                     // .badge(2)
                     .tabItem {
                         Label("Bookmarks", systemImage: "star")
                     }
                 
-                SearchView(busStops: busStops, buses: buses)
+                SearchView(busStops: busStops)
                     .tabItem {
                         Label("Search", systemImage: "magnifyingglass")
                     }
