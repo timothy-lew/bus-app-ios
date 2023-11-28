@@ -14,12 +14,6 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            Button("Debug") {
-                print()
-                for code in codes {
-                    print(code.busStopCode)
-                }
-            }
             TabView {
                 BookmarkView()
                     // .badge(2)
@@ -30,6 +24,11 @@ struct ContentView: View {
                 SearchView()
                     .tabItem {
                         Label("Search", systemImage: "magnifyingglass")
+                    }
+                
+                NearbyView()
+                    .tabItem {
+                        Label("Nearby", systemImage: "location.fill")
                     }
             }
         }

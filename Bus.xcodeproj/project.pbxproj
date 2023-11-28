@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C28704F2B1613BE007F7E40 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28704E2B1613BE007F7E40 /* Environment.swift */; };
 		1C39AF542B14682900D43F0E /* BookmarkBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C39AF532B14682900D43F0E /* BookmarkBus.swift */; };
+		1C39AF562B15B2A400D43F0E /* NearbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C39AF552B15B2A400D43F0E /* NearbyView.swift */; };
+		1C39AF582B15BE4A00D43F0E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C39AF572B15BE4A00D43F0E /* LocationManager.swift */; };
 		1C75E34B2B11A11C00F65C58 /* BusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C75E34A2B11A11C00F65C58 /* BusApp.swift */; };
 		1C75E34D2B11A11C00F65C58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C75E34C2B11A11C00F65C58 /* ContentView.swift */; };
 		1C75E34F2B11A11D00F65C58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C75E34E2B11A11D00F65C58 /* Assets.xcassets */; };
@@ -21,7 +24,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C28704A2B160F19007F7E40 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		1C28704B2B161046007F7E40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1C28704E2B1613BE007F7E40 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		1C39AF532B14682900D43F0E /* BookmarkBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkBus.swift; sourceTree = "<group>"; };
+		1C39AF552B15B2A400D43F0E /* NearbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyView.swift; sourceTree = "<group>"; };
+		1C39AF572B15BE4A00D43F0E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1C75E3472B11A11C00F65C58 /* Bus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C75E34A2B11A11C00F65C58 /* BusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusApp.swift; sourceTree = "<group>"; };
 		1C75E34C2B11A11C00F65C58 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,15 +73,20 @@
 		1C75E3492B11A11C00F65C58 /* Bus */ = {
 			isa = PBXGroup;
 			children = (
+				1C28704B2B161046007F7E40 /* Info.plist */,
 				1C78A7612B1360E300410616 /* BookmarkView.swift */,
 				1CE824F02B11D1BA00AC544A /* BusView.swift */,
 				1C75E35A2B11AC2C00F65C58 /* SearchView.swift */,
 				1C78A7652B13635400410616 /* BusStopView.swift */,
 				1C75E34C2B11A11C00F65C58 /* ContentView.swift */,
+				1C28704A2B160F19007F7E40 /* Config.xcconfig */,
+				1C39AF552B15B2A400D43F0E /* NearbyView.swift */,
+				1C39AF572B15BE4A00D43F0E /* LocationManager.swift */,
 				1C39AF532B14682900D43F0E /* BookmarkBus.swift */,
 				1C75E35C2B11BDAC00F65C58 /* BusStop.swift */,
 				1CE824FA2B11E94000AC544A /* Bus.swift */,
 				1C75E34A2B11A11C00F65C58 /* BusApp.swift */,
+				1C28704E2B1613BE007F7E40 /* Environment.swift */,
 				1C75E34E2B11A11D00F65C58 /* Assets.xcassets */,
 				1C75E3502B11A11D00F65C58 /* Preview Content */,
 			);
@@ -159,10 +172,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C75E35D2B11BDAC00F65C58 /* BusStop.swift in Sources */,
+				1C39AF562B15B2A400D43F0E /* NearbyView.swift in Sources */,
 				1CE824FB2B11E94000AC544A /* Bus.swift in Sources */,
+				1C39AF582B15BE4A00D43F0E /* LocationManager.swift in Sources */,
 				1C75E35B2B11AC2C00F65C58 /* SearchView.swift in Sources */,
 				1C39AF542B14682900D43F0E /* BookmarkBus.swift in Sources */,
 				1C75E34D2B11A11C00F65C58 /* ContentView.swift in Sources */,
+				1C28704F2B1613BE007F7E40 /* Environment.swift in Sources */,
 				1CE824F12B11D1BA00AC544A /* BusView.swift in Sources */,
 				1C78A7662B13635400410616 /* BusStopView.swift in Sources */,
 				1C75E34B2B11A11C00F65C58 /* BusApp.swift in Sources */,
@@ -173,11 +189,110 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		1C2870482B160DCA007F7E40 /* Simulator */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C28704A2B160F19007F7E40 /* Config.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BASE_URL = "";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Simulator;
+		};
+		1C2870492B160DCA007F7E40 /* Simulator */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C28704A2B160F19007F7E40 /* Config.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BASE_URL = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Bus/Preview Content\"";
+				DEVELOPMENT_TEAM = FH4A7R5Q7J;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Bus/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to find nearby bus stops";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tutorial.Bus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Simulator;
+		};
 		1C75E3532B11A11D00F65C58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BASE_URL = "";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -297,11 +412,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BASE_URL = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Bus/Preview Content\"";
+				DEVELOPMENT_TEAM = FH4A7R5Q7J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Bus/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to find nearby bus stops";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -328,8 +447,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Bus/Preview Content\"";
+				DEVELOPMENT_TEAM = FH4A7R5Q7J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Bus/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to find nearby bus stops";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -355,6 +477,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1C75E3532B11A11D00F65C58 /* Debug */,
+				1C2870482B160DCA007F7E40 /* Simulator */,
 				1C75E3542B11A11D00F65C58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -364,6 +487,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1C75E3562B11A11D00F65C58 /* Debug */,
+				1C2870492B160DCA007F7E40 /* Simulator */,
 				1C75E3572B11A11D00F65C58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

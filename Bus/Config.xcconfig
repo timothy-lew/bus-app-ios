@@ -1,0 +1,10 @@
+//
+//  Config.xcconfig
+//  Bus
+//
+//  Created by Timothy on 28/11/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+BASE_URL="http://localhost:3000"
