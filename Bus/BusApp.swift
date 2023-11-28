@@ -5,6 +5,7 @@
 //  Created by Timothy on 25/11/23.
 //
 
+import SwiftData
 import SwiftUI
 
 @main
@@ -13,5 +14,6 @@ struct BusApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: BookmarkBus.self)
     }
 }

@@ -7,22 +7,10 @@
 
 import SwiftUI
 
-//struct BusStops: Codable {
-//    let busStops: [BusStop]
-//}
-
-//struct BusStopInfo: Codable {
-//    let BusStopCode: String
-//    let RoadName: String
-//    let Description: String
-//    let Latitude: Double
-//    let Longitude: Double
-//}
-
 struct SearchView: View {
     @State private var roadName = ""
     
-    @State var busStops: [BusStop]
+    @State private var busStops: [BusStop] = []
  
     @State private var showAlert = false
     @State private var alertMessage = ""
@@ -64,7 +52,7 @@ struct SearchView: View {
     func getBusStopByRoadName() async {
         // TODO add config
         // url
-        let url = URL(string: "http://localhost:3000/busstop/name/\(roadName)")!
+        let url = URL(string: "http://localhost:3000/busstops/name/\(roadName)")!
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
@@ -83,9 +71,5 @@ struct SearchView: View {
 }
 
 #Preview {
-    let busStops: [BusStop] = [
-            BusStop(busStopCode: "123", roadName: "Woodlands", description: "Some Description", latitude: 1, longitude: 2),
-        ]
-    
-    return SearchView(busStops: busStops)
+    SearchView()
 }

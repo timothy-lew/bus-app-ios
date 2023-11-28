@@ -5,35 +5,38 @@
 //  Created by Timothy on 25/11/23.
 //
 
+import SwiftData
 import SwiftUI
 
 struct ContentView: View {
-    @State private var busStops = [BusStop]()
+    
+    @Query(sort: \BookmarkBus.busStopCode, order: .forward, animation: .smooth) var codes: [BookmarkBus]
     
     var body: some View {
         NavigationStack {
+            Button("Debug") {
+                print()
+                for code in codes {
+                    print(code.busStopCode)
+//                    modelContext.delete(code)
+                }
+            }
             TabView {
-                BookmarkView(busStops: busStops)
+                BookmarkView()
                     // .badge(2)
                     .tabItem {
                         Label("Bookmarks", systemImage: "star")
                     }
                 
-                SearchView(busStops: busStops)
+                SearchView()
                     .tabItem {
                         Label("Search", systemImage: "magnifyingglass")
                     }
-
-//                SearchView()
-//                    // .badge("!")
-//                    .tabItem {
-//                        Label("Account", systemImage: "person.crop.circle.fill")
-//                    }
             }
         }
     }
 }
 
 #Preview {
-    ContentView()
+    return ContentView()
 }

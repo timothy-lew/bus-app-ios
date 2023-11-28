@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C39AF542B14682900D43F0E /* BookmarkBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C39AF532B14682900D43F0E /* BookmarkBus.swift */; };
 		1C75E34B2B11A11C00F65C58 /* BusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C75E34A2B11A11C00F65C58 /* BusApp.swift */; };
 		1C75E34D2B11A11C00F65C58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C75E34C2B11A11C00F65C58 /* ContentView.swift */; };
 		1C75E34F2B11A11D00F65C58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C75E34E2B11A11D00F65C58 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C39AF532B14682900D43F0E /* BookmarkBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkBus.swift; sourceTree = "<group>"; };
 		1C75E3472B11A11C00F65C58 /* Bus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C75E34A2B11A11C00F65C58 /* BusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusApp.swift; sourceTree = "<group>"; };
 		1C75E34C2B11A11C00F65C58 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				1C75E35A2B11AC2C00F65C58 /* SearchView.swift */,
 				1C78A7652B13635400410616 /* BusStopView.swift */,
 				1C75E34C2B11A11C00F65C58 /* ContentView.swift */,
+				1C39AF532B14682900D43F0E /* BookmarkBus.swift */,
 				1C75E35C2B11BDAC00F65C58 /* BusStop.swift */,
 				1CE824FA2B11E94000AC544A /* Bus.swift */,
 				1C75E34A2B11A11C00F65C58 /* BusApp.swift */,
@@ -158,6 +161,7 @@
 				1C75E35D2B11BDAC00F65C58 /* BusStop.swift in Sources */,
 				1CE824FB2B11E94000AC544A /* Bus.swift in Sources */,
 				1C75E35B2B11AC2C00F65C58 /* SearchView.swift in Sources */,
+				1C39AF542B14682900D43F0E /* BookmarkBus.swift in Sources */,
 				1C75E34D2B11A11C00F65C58 /* ContentView.swift in Sources */,
 				1CE824F12B11D1BA00AC544A /* BusView.swift in Sources */,
 				1C78A7662B13635400410616 /* BusStopView.swift in Sources */,

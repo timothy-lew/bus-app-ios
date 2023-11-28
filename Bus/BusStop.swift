@@ -7,15 +7,13 @@
 
 import Foundation
 
-//@Observable
 // cannot be class
 struct BusStop: Codable, Hashable {
-    
-    var busStopCode: String
-    var roadName: String
-    var description: String
-    var latitude: Double
-    var longitude: Double
+    let busStopCode: String
+    let roadName: String
+    let description: String
+    let latitude: Double
+    let longitude: Double
     
     // Structures being value types, don't neccessarily require an initializer defined
 //    init(busStopCode: String, roadName: String, description: String, latitude: Double, longitude: Double) {

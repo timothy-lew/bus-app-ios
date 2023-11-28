@@ -38,14 +38,15 @@ struct BusView: View {
          */
         .onAppear(perform: {
             Task {
-                await getBusStopByCode()
+                await getBusesByCode()
             }
         })
         .toolbar {
             ToolbarItem {
                 Button("Refresh", systemImage: "gobackward") { // figure.run
                     Task {
-                        await getBusStopByCode()
+                        await getBusesByCode()
+                        print("refreshing")
                     }
                 }
             }
@@ -84,10 +85,10 @@ struct BusView: View {
         return Text(String(Int(round(timeDifference)))).foregroundStyle(colour)
     }
     
-    func getBusStopByCode() async {
+    func getBusesByCode() async {
         // TODO add config
         // url
-        let url = URL(string: "http://localhost:3000/busstop/number/\(busStop.busStopCode)")!
+        let url = URL(string: "http://localhost:3000/buses/code/\(busStop.busStopCode)")!
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
