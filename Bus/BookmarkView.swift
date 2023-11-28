@@ -18,19 +18,11 @@ struct BookmarkView: View {
     
     var body: some View {
         List {
-//            ForEach(bookmarkCodes, id: \.busStopCode) { bookmarkCode in
-//                Text(bookmarkCode.busStopCode)
-//                NavigationLink {
-//                    BusView(busStop: busStop)
-//                } label : {
-//                    BusStopView(busStop: busStop)
-//                }
-//            }
-            ForEach(busStops, id: \.busStopCode) { busStop in
+            ForEach(bookmarkCodes, id: \.busStopCode) { bookmarkCode in
                 NavigationLink {
-                    BusView(busStop: busStop)
+                    BusView(busStopCode: bookmarkCode.busStopCode)
                 } label : {
-                    BusStopView(busStop: busStop)
+                    BusStopView(busStopCode: bookmarkCode.busStopCode)
                 }
             }
         }
@@ -44,9 +36,7 @@ struct BookmarkView: View {
     
     func getBusStopsByCode() async {
         busStops.removeAll() // Clear existing data before fetching
-        print("getting bus stops")
         for bookmarkCode in bookmarkCodes {
-            print(bookmarkCode.busStopCode)
             // TODO add config
             // url
             let url = URL(string: "http://localhost:3000/busstop/code/\(bookmarkCode.busStopCode)")!
@@ -55,7 +45,6 @@ struct BookmarkView: View {
                 let (data, _) = try await URLSession.shared.data(from: url)
                 
                 let decodedData = try JSONDecoder().decode(BusStop.self, from: data)
-//                print(decodedData)
                 busStops.append(decodedData)
             } catch {
                 print("GET request failed: \(error.localizedDescription)")

@@ -18,7 +18,6 @@ struct ContentView: View {
                 print()
                 for code in codes {
                     print(code.busStopCode)
-//                    modelContext.delete(code)
                 }
             }
             TabView {

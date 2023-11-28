@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct BusView: View {
-    @State var busStop: BusStop
+    @State private var busStop: BusStop = BusStop(busStopCode: "", roadName: "", description: "", latitude: 0.0, longitude: 0.0)
     @State private var buses: BusArrival = BusArrival(odataMetadata: "", busStopCode: "", services: [])
     
     @State private var showAlert = false
     @State private var alertMessage = ""
+    
+    var busStopCode: String
     
     var body: some View {
         VStack {
@@ -30,12 +32,6 @@ struct BusView: View {
                 }
             }
         }
-        /* 
-            i dont think this is ideal, should probably use fetchData or something
-            my skills are limited
-            not sure if should use .onAppear() here of .onAppear() in SearchView()
-            but this works
-         */
         .onAppear(perform: {
             Task {
                 await getBusesByCode()
@@ -57,10 +53,15 @@ struct BusView: View {
     }
     
     func getBusTime(for estimatedArrival: String, load: String) -> some View {
+        if estimatedArrival.isEmpty {
+            return Text("NA").foregroundStyle(.black)
+        }
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
         
         var timeDifference = 0.0
+        var isArriving = false
         
         if let time = dateFormatter.date(from: estimatedArrival) {
             // Get the current date and time
@@ -69,9 +70,11 @@ struct BusView: View {
             
             // Calculate the time difference
             timeDifference = time.timeIntervalSince(currentDate) / 60
-            timeDifference = timeDifference >= 0 ? timeDifference : 0
+            if timeDifference <= 1 {
+                isArriving = true
+            }
         } else {
-            print("Failed to parse the specific date.")
+            print("Failed to parse the specific date: \(estimatedArrival)")
         }
         
         var colour = Color(.black)
@@ -82,13 +85,14 @@ struct BusView: View {
             case "LSD": colour = .red
             default: colour = .black
         }
-        return Text(String(Int(round(timeDifference)))).foregroundStyle(colour)
+        
+        return isArriving ? Text("ARR").foregroundStyle(colour) : Text(String(Int(round(timeDifference)))).foregroundStyle(colour)
     }
     
     func getBusesByCode() async {
         // TODO add config
         // url
-        let url = URL(string: "http://localhost:3000/buses/code/\(busStop.busStopCode)")!
+        let url = URL(string: "http://localhost:3000/buses/code/\(busStopCode)")!
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
@@ -105,17 +109,17 @@ struct BusView: View {
 }
 
 #Preview {
-    let busStop: BusStop = BusStop(busStopCode: "123", roadName: "Woodlands", description: "Some Description", latitude: 1, longitude: 2)
-    
-    let busInfo1: BusInfo = BusInfo(originCode: "46009", destinationCode: "46009", estimatedArrival: "This is arrival", latitude: "0.0", longitude: "0.0", visitNumber: "1", load: "SEA", feature: "WAB", type: "DD")
-    
-    let busInfo2: BusInfo = BusInfo(originCode: "46009", destinationCode: "46009", estimatedArrival: "This is arrival", latitude: "0.0", longitude: "0.0", visitNumber: "1", load: "SEA", feature: "WAB", type: "DD")
-    
-    let busInfo3: BusInfo = BusInfo(originCode: "46009", destinationCode: "46009", estimatedArrival: "This is arrival", latitude: "0.0", longitude: "0.0", visitNumber: "1", load: "SEA", feature: "WAB", type: "DD")
-    
-    let busService: BusService = BusService(serviceNo: "962", operatorName: "SMRT", nextBus: busInfo1, nextBus2: busInfo2, nextBus3: busInfo3)
-    
-    let buses: BusArrival = BusArrival(odataMetadata: "test", busStopCode: "43911", services: [busService])
+//    let busStop: BusStop = BusStop(busStopCode: "123", roadName: "Woodlands", description: "Some Description", latitude: 1, longitude: 2)
+//    
+//    let busInfo1: BusInfo = BusInfo(originCode: "46009", destinationCode: "46009", estimatedArrival: "This is arrival", latitude: "0.0", longitude: "0.0", visitNumber: "1", load: "SEA", feature: "WAB", type: "DD")
+//    
+//    let busInfo2: BusInfo = BusInfo(originCode: "46009", destinationCode: "46009", estimatedArrival: "This is arrival", latitude: "0.0", longitude: "0.0", visitNumber: "1", load: "SEA", feature: "WAB", type: "DD")
+//    
+//    let busInfo3: BusInfo = BusInfo(originCode: "46009", destinationCode: "46009", estimatedArrival: "This is arrival", latitude: "0.0", longitude: "0.0", visitNumber: "1", load: "SEA", feature: "WAB", type: "DD")
+//    
+//    let busService: BusService = BusService(serviceNo: "962", operatorName: "SMRT", nextBus: busInfo1, nextBus2: busInfo2, nextBus3: busInfo3)
+//    
+//    let buses: BusArrival = BusArrival(odataMetadata: "test", busStopCode: "43911", services: [busService])
         
-    return BusView(busStop: busStop)
+    return BusView(busStopCode: "47611")
 }

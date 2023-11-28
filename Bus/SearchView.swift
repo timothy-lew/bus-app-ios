@@ -22,7 +22,7 @@ struct SearchView: View {
                     TextField("", text: $roadName, prompt: Text("Required"))
                         .onSubmit {
                             Task {
-                                await getBusStopByRoadName()
+                                await getBusStopsByRoadName()
                             }
                         }
                         // .onChange
@@ -36,9 +36,9 @@ struct SearchView: View {
             List {
                 ForEach(busStops, id: \.self) { busStop in
                     NavigationLink {
-                        BusView(busStop: busStop)
+                        BusView(busStopCode: busStop.busStopCode)
                     } label : {
-                        BusStopView(busStop: busStop)
+                        BusStopView(busStopCode: busStop.busStopCode)
                     }
                 }
             }
@@ -49,7 +49,7 @@ struct SearchView: View {
         }
     }
     
-    func getBusStopByRoadName() async {
+    func getBusStopsByRoadName() async {
         // TODO add config
         // url
         let url = URL(string: "http://localhost:3000/busstops/name/\(roadName)")!
