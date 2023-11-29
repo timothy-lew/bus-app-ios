@@ -37,7 +37,7 @@ struct NearbyView: View {
                     NavigationLink {
                         BusView(busStopCode: busStop.busStopCode)
                     } label : {
-                        BusStopView(busStopCode: busStop.busStopCode)
+                        BusStopView(busStopCode: busStop.busStopCode, distance: busStop.distance)
                     }
                 }
             }
@@ -45,13 +45,13 @@ struct NearbyView: View {
         }
         .onAppear {
             locationManager.checkIfLocationServicesIsEnabled()
-            test()
+            checkLocationManager()
         }
         .toolbar {
             ToolbarItem {
                 Button("Refresh", systemImage: "gobackward") { // figure.run
                     locationManager.checkIfLocationServicesIsEnabled()
-                    test()
+                    checkLocationManager()
                     Task {
                         await getBusStopsByLatLong()
                     }
@@ -60,7 +60,7 @@ struct NearbyView: View {
         }
     }
     
-    func test() {
+    func checkLocationManager() {
 //        print(locationManager.manager?.location ?? "Unable to get location")
         hasLocation = locationManager.manager?.location != nil
         if let currentLocation = locationManager.manager?.location {

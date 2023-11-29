@@ -31,6 +31,7 @@ struct SearchView: View {
             }
             // if frame height not specified, Form{} will take up half the screen
             .frame(height: 100)
+            Text("Swipe to bookmark or delete")
             
             // dk how to update list .onChange()
             List {

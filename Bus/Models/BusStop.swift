@@ -14,6 +14,7 @@ struct BusStop: Codable, Hashable {
     let description: String
     let latitude: Double
     let longitude: Double
+    var distance: Int?
     
     // Structures being value types, don't neccessarily require an initializer defined
 //    init(busStopCode: String, roadName: String, description: String, latitude: Double, longitude: Double) {
@@ -30,5 +31,6 @@ struct BusStop: Codable, Hashable {
         case description = "Description"
         case latitude = "Latitude"
         case longitude = "Longitude"
+        case distance = "Distance"
     }
 }

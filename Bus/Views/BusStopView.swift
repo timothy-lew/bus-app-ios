@@ -14,15 +14,30 @@ struct BusStopView: View {
     
     @State private var busStop: BusStop = BusStop(busStopCode: "", roadName: "", description: "", latitude: 0.0, longitude: 0.0)
     @State var busStopCode: String
+    @State var distance: Int?
     
     @State private var showAlert = false
     @State private var alertMessage = ""
     
     var body: some View {
-        HStack {
-            Text("\(busStop.roadName)")
-            Spacer()
-            Text("\(busStop.description)")
+        VStack {
+            HStack {
+                Text("\(busStop.description)")
+                    .font(.title3).bold()
+                Spacer()
+            }
+            HStack {
+                Text("\(busStop.roadName)")
+                    .italic()
+                if let distance = distance {
+                    Image(systemName: "circle.fill")
+                        .resizable()
+                        .frame(width: 8, height: 8)
+                    Text("\(String(distance))m")
+                        .italic()
+                }
+                Spacer()
+            }
         }
         .onAppear(perform: {
             Task {
@@ -39,12 +54,10 @@ struct BusStopView: View {
             }
             .tint(.red)
         }
-        .alert(isPresented: $showAlert) {
-            Alert(
-                title: Text("Bookmark Status"),
-                message: Text(alertMessage),
-                dismissButton: .default(Text("OK"))
-            )
+        .alert("Bookmark Status", isPresented: $showAlert) {
+            Button("OK") { }
+        } message: {
+            Text(alertMessage)
         }
         .animation(.easeInOut)
     }

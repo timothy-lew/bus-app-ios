@@ -11,6 +11,8 @@ import SwiftUI
 struct ContentView: View {
     @Query(sort: \BookmarkBus.busStopCode, order: .forward, animation: .smooth) var codes: [BookmarkBus]
     
+    @State private var isPresented = true
+    
     var body: some View {
         NavigationStack {
             TabView {
@@ -29,6 +31,11 @@ struct ContentView: View {
                     .tabItem {
                         Label("Nearby", systemImage: "location.fill")
                     }
+            }
+        }
+        .alert("Swipe to bookmark or delete", isPresented: $isPresented) {
+            Button("Ok") {
+                isPresented.toggle()
             }
         }
     }
