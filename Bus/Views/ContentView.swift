@@ -9,7 +9,6 @@ import SwiftData
 import SwiftUI
 
 struct ContentView: View {
-    
     @Query(sort: \BookmarkBus.busStopCode, order: .forward, animation: .smooth) var codes: [BookmarkBus]
     
     var body: some View {

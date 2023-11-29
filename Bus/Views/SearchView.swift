@@ -50,8 +50,6 @@ struct SearchView: View {
     }
     
     func getBusStopsByRoadName() async {
-        // TODO add config
-        // url
         let url = URL(string: "\(Env.baseURL)/busstops/name/\(roadName)")!
         
         do {

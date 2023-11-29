@@ -70,8 +70,6 @@ struct NearbyView: View {
     }
     
     func getBusStopsByLatLong() async {
-        // TODO add config
-        // url
         let url = URL(string: "\(Env.baseURL)/busstops/latlong/\(latitude)/\(longitude)")!
         
         do {

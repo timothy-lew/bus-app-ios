@@ -50,8 +50,6 @@ struct BusStopView: View {
     }
     
     func getBusStopByCode() async {
-        // TODO add config
-        // url
         let url = URL(string: "\(Env.baseURL)/busstop/code/\(busStopCode)")!
         
         do {
@@ -93,7 +91,5 @@ struct BusStopView: View {
 }
 
 #Preview {
-//    let busStop = BusStop(busStopCode: "123", roadName: "Woodlands", description: "Some Description", latitude: 1, longitude: 2)
-        
     return BusStopView(busStopCode: "47611")
 }

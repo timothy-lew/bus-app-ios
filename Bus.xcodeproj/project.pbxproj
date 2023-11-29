@@ -39,6 +39,7 @@
 		1C75E35C2B11BDAC00F65C58 /* BusStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStop.swift; sourceTree = "<group>"; };
 		1C78A7612B1360E300410616 /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
 		1C78A7652B13635400410616 /* BusStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopView.swift; sourceTree = "<group>"; };
+		1CB701622B16F0F30093A3E0 /* PhysicalPhoneConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PhysicalPhoneConfig.xcconfig; sourceTree = "<group>"; };
 		1CE824F02B11D1BA00AC544A /* BusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusView.swift; sourceTree = "<group>"; };
 		1CE824FA2B11E94000AC544A /* Bus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,7 +77,6 @@
 				1CB701612B16DF290093A3E0 /* Config */,
 				1CB701602B16DF140093A3E0 /* Models */,
 				1CB7015F2B16DEF60093A3E0 /* Views */,
-				1C39AF572B15BE4A00D43F0E /* LocationManager.swift */,
 				1C28704B2B161046007F7E40 /* Info.plist */,
 				1C75E34A2B11A11C00F65C58 /* BusApp.swift */,
 				1C75E34E2B11A11D00F65C58 /* Assets.xcassets */,
@@ -97,10 +97,10 @@
 			isa = PBXGroup;
 			children = (
 				1C78A7612B1360E300410616 /* BookmarkView.swift */,
-				1CE824F02B11D1BA00AC544A /* BusView.swift */,
-				1C75E35A2B11AC2C00F65C58 /* SearchView.swift */,
 				1C78A7652B13635400410616 /* BusStopView.swift */,
+				1CE824F02B11D1BA00AC544A /* BusView.swift */,
 				1C75E34C2B11A11C00F65C58 /* ContentView.swift */,
+				1C75E35A2B11AC2C00F65C58 /* SearchView.swift */,
 				1C39AF552B15B2A400D43F0E /* NearbyView.swift */,
 			);
 			path = Views;
@@ -112,6 +112,7 @@
 				1C39AF532B14682900D43F0E /* BookmarkBus.swift */,
 				1C75E35C2B11BDAC00F65C58 /* BusStop.swift */,
 				1CE824FA2B11E94000AC544A /* Bus.swift */,
+				1C39AF572B15BE4A00D43F0E /* LocationManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -120,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				1C28704A2B160F19007F7E40 /* Config.xcconfig */,
+				1CB701622B16F0F30093A3E0 /* PhysicalPhoneConfig.xcconfig */,
 				1C2870592B16D602007F7E40 /* Env.swift */,
 			);
 			path = Config;
@@ -215,11 +217,11 @@
 /* Begin XCBuildConfiguration section */
 		1C2870482B160DCA007F7E40 /* PhysicalPhone */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C28704A2B160F19007F7E40 /* Config.xcconfig */;
+			baseConfigurationReference = 1CB701622B16F0F30093A3E0 /* PhysicalPhoneConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				BASE_URL = "https://bus.techdevglobal.com";
+				BASE_URL = "https://bus.techdevglobal.com/api";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -281,11 +283,11 @@
 		};
 		1C2870492B160DCA007F7E40 /* PhysicalPhone */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C28704A2B160F19007F7E40 /* Config.xcconfig */;
+			baseConfigurationReference = 1CB701622B16F0F30093A3E0 /* PhysicalPhoneConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				BASE_URL = "https://bus.techdevglobal.com";
+				BASE_URL = "https://bus.techdevglobal.com/api";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Bus/Preview Content\"";
@@ -316,6 +318,7 @@
 		};
 		1C75E3532B11A11D00F65C58 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C28704A2B160F19007F7E40 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -437,6 +440,7 @@
 		};
 		1C75E3562B11A11D00F65C58 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C28704A2B160F19007F7E40 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
