@@ -61,7 +61,7 @@ struct NearbyView: View {
     }
     
     func test() {
-        print(locationManager.manager?.location ?? "Unable to get location")
+//        print(locationManager.manager?.location ?? "Unable to get location")
         hasLocation = locationManager.manager?.location != nil
         if let currentLocation = locationManager.manager?.location {
             latitude = String(currentLocation.coordinate.latitude)
@@ -72,7 +72,7 @@ struct NearbyView: View {
     func getBusStopsByLatLong() async {
         // TODO add config
         // url
-        let url = URL(string: "http://localhost:3000/busstops/latlong/\(latitude)/\(longitude)")!
+        let url = URL(string: "\(Env.baseURL)/busstops/latlong/\(latitude)/\(longitude)")!
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)

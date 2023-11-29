@@ -52,7 +52,7 @@ struct SearchView: View {
     func getBusStopsByRoadName() async {
         // TODO add config
         // url
-        let url = URL(string: "http://localhost:3000/busstops/name/\(roadName)")!
+        let url = URL(string: "\(Env.baseURL)/busstops/name/\(roadName)")!
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)

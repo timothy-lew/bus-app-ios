@@ -52,7 +52,7 @@ struct BusStopView: View {
     func getBusStopByCode() async {
         // TODO add config
         // url
-        let url = URL(string: "http://localhost:3000/busstop/code/\(busStopCode)")!
+        let url = URL(string: "\(Env.baseURL)/busstop/code/\(busStopCode)")!
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
