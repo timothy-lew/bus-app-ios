@@ -60,7 +60,6 @@
 		1C75E33E2B11A11C00F65C58 = {
 			isa = PBXGroup;
 			children = (
-				1C75AF3C2B17537B00FFC9C6 /* MapView.swift */,
 				1C75E3492B11A11C00F65C58 /* Bus */,
 				1C75E3482B11A11C00F65C58 /* Products */,
 			);
@@ -103,8 +102,9 @@
 				1C78A7652B13635400410616 /* BusStopView.swift */,
 				1CE824F02B11D1BA00AC544A /* BusView.swift */,
 				1C75E34C2B11A11C00F65C58 /* ContentView.swift */,
-				1C75E35A2B11AC2C00F65C58 /* SearchView.swift */,
+				1C75AF3C2B17537B00FFC9C6 /* MapView.swift */,
 				1C39AF552B15B2A400D43F0E /* NearbyView.swift */,
+				1C75E35A2B11AC2C00F65C58 /* SearchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
