@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct BusView: View {
-    @State private var busStop: BusStop = BusStop(busStopCode: "", roadName: "", description: "", latitude: 0.0, longitude: 0.0)
     @State private var buses: BusArrival = BusArrival(odataMetadata: "", busStopCode: "", services: [])
     
     @State private var showAlert = false
@@ -21,13 +20,18 @@ struct BusView: View {
             List {
                 ForEach(buses.services, id: \.self) { bus in
                     Section("\(bus.serviceNo)") {
-                        HStack {
-                            getBusTime(for: bus.nextBus.estimatedArrival, load: bus.nextBus.load)
-                            Spacer()
-                            getBusTime(for: bus.nextBus2.estimatedArrival, load: bus.nextBus2.load)
-                            Spacer()
-                            getBusTime(for: bus.nextBus3.estimatedArrival, load: bus.nextBus3.load)
+                        NavigationLink {
+                            MapView(busStopCode: busStopCode, busNumber: bus.serviceNo, nextBus: bus.nextBus, nextBus2: bus.nextBus2, nextBus3: bus.nextBus3)
+                        } label : {
+                            HStack {
+                                getBusTime(for: bus.nextBus.estimatedArrival, load: bus.nextBus.load)
+                                Spacer()
+                                getBusTime(for: bus.nextBus2.estimatedArrival, load: bus.nextBus2.load)
+                                Spacer()
+                                getBusTime(for: bus.nextBus3.estimatedArrival, load: bus.nextBus3.load)
+                            }
                         }
+                        
                     }
                 }
             }
@@ -83,7 +87,7 @@ struct BusView: View {
             case "SEA": colour = .green
             case "SDA": colour = .orange
             case "LSD": colour = .red
-            default: colour = .black
+            default: colour = .primary
         }
         
         return isArriving ? Text("ARR").foregroundStyle(colour) : Text(String(Int(round(timeDifference)))).foregroundStyle(colour)

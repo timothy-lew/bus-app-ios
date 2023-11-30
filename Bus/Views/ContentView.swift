@@ -16,6 +16,10 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             TabView {
+                NearbyView()
+                    .tabItem {
+                        Label("Nearby", systemImage: "location.fill")
+                    }
                 BookmarkView()
                     // .badge(2)
                     .tabItem {
@@ -25,11 +29,6 @@ struct ContentView: View {
                 SearchView()
                     .tabItem {
                         Label("Search", systemImage: "magnifyingglass")
-                    }
-                
-                NearbyView()
-                    .tabItem {
-                        Label("Nearby", systemImage: "location.fill")
                     }
             }
         }
