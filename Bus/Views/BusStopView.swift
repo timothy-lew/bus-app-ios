@@ -85,10 +85,8 @@ struct BusStopView: View {
             modelContext.insert(bookmarkBus)
         }
         else {
-            for bookmarkCode in bookmarkCodes {
-                if (bookmarkCode.busStopCode == busStop.busStopCode) {
-                    modelContext.delete(bookmarkCode)
-                }
+            if let bookmarkToDelete = bookmarkCodes.first(where: { $0.busStopCode == busStopCode }) {
+                modelContext.delete(bookmarkToDelete)
             }
         }
         
