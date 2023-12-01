@@ -63,19 +63,13 @@ struct BusStopView: View {
     }
     
     func getBusStopByCode() async {
-        let url = URL(string: "\(Env.baseURL)/busstop/code/\(busStopCode)")!
-        
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            
-            let decodedData = try JSONDecoder().decode(BusStop.self, from: data)
-            busStop = decodedData
-        } catch {
-            print("GET request failed: \(error.localizedDescription)")
-            print(String(describing: error))
-            
-            showAlert = true
-            alertMessage = "Server error: \(error.localizedDescription)"
+        Utilities.getBusStopByCode(busStopCode: busStopCode) { stop, error in
+            if let stop = stop {
+                busStop = stop
+            } else if let error = error {
+                showAlert = true
+                alertMessage = "Server error: \(error.localizedDescription)"
+            }
         }
     }
     

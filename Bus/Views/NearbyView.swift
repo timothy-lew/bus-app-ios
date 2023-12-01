@@ -70,20 +70,13 @@ struct NearbyView: View {
     }
     
     func getBusStopsByLatLong() async {
-        let url = URL(string: "\(Env.baseURL)/busstops/latlong/\(latitude)/\(longitude)")!
-        
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            // response is array of json. [{BusStop}, {BusStop}]
-            let busStopsDecoded = try JSONDecoder().decode([BusStop].self, from: data)
-            
-            busStops = busStopsDecoded
-        } catch {
-            print("GET request failed: \(error.localizedDescription)")
-            print(String(describing: error))
-            
-            showAlert = true
-            alertMessage = "Server error: \(error.localizedDescription)"
+        Utilities.getBusStopsByLatLong(latitude: latitude, longitude: longitude) { stops, error in
+            if let stops = stops {
+                busStops = stops
+            } else if let error = error {
+                showAlert = true
+                alertMessage = "Server error: \(error.localizedDescription)"
+            }
         }
     }
 

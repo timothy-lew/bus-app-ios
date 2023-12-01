@@ -20,6 +20,7 @@
 		1C75E35D2B11BDAC00F65C58 /* BusStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C75E35C2B11BDAC00F65C58 /* BusStop.swift */; };
 		1C78A7622B1360E300410616 /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C78A7612B1360E300410616 /* BookmarkView.swift */; };
 		1C78A7662B13635400410616 /* BusStopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C78A7652B13635400410616 /* BusStopView.swift */; };
+		1C861BE52B1977B5001E73F4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C861BE42B1977B5001E73F4 /* Utilities.swift */; };
 		1CE824F12B11D1BA00AC544A /* BusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE824F02B11D1BA00AC544A /* BusView.swift */; };
 		1CE824FB2B11E94000AC544A /* Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE824FA2B11E94000AC544A /* Bus.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 		1C75E35C2B11BDAC00F65C58 /* BusStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStop.swift; sourceTree = "<group>"; };
 		1C78A7612B1360E300410616 /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
 		1C78A7652B13635400410616 /* BusStopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStopView.swift; sourceTree = "<group>"; };
+		1C861BE42B1977B5001E73F4 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		1CB701622B16F0F30093A3E0 /* PhysicalPhoneConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PhysicalPhoneConfig.xcconfig; sourceTree = "<group>"; };
 		1CE824F02B11D1BA00AC544A /* BusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusView.swift; sourceTree = "<group>"; };
 		1CE824FA2B11E94000AC544A /* Bus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bus.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				1CB7015F2B16DEF60093A3E0 /* Views */,
 				1C28704B2B161046007F7E40 /* Info.plist */,
 				1C75E34A2B11A11C00F65C58 /* BusApp.swift */,
+				1C861BE42B1977B5001E73F4 /* Utilities.swift */,
 				1C75E34E2B11A11D00F65C58 /* Assets.xcassets */,
 				1C75E3502B11A11D00F65C58 /* Preview Content */,
 			);
@@ -202,6 +205,7 @@
 			files = (
 				1C75E35D2B11BDAC00F65C58 /* BusStop.swift in Sources */,
 				1C39AF562B15B2A400D43F0E /* NearbyView.swift in Sources */,
+				1C861BE52B1977B5001E73F4 /* Utilities.swift in Sources */,
 				1CE824FB2B11E94000AC544A /* Bus.swift in Sources */,
 				1C39AF582B15BE4A00D43F0E /* LocationManager.swift in Sources */,
 				1C75AF3D2B17537B00FFC9C6 /* MapView.swift in Sources */,

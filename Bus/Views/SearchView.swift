@@ -19,18 +19,26 @@ struct SearchView: View {
         VStack {
             Form {
                 Section("Road Name") {
-                    TextField("", text: $roadName, prompt: Text("Required"))
-                        .onSubmit {
-                            Task {
-                                await getBusStopsByRoadName()
+                    HStack {
+                        TextField("", text: $roadName, prompt: Text("Required"))
+                            .onSubmit {
+                                Task {
+                                    await getBusStopsByRoadName()
+                                }
                             }
+                            .disableAutocorrection(true)
+                        Button(action: {
+                            roadName = ""
+                        }) {
+                            Image(systemName: "multiply.circle.fill")
+                                .foregroundColor(.secondary)
                         }
-                        // .onChange
-                        .disableAutocorrection(true)
+                    }
                 }
             }
             // if frame height not specified, Form{} will take up half the screen
             .frame(height: 100)
+            .scrollDisabled(true)
             Text("Swipe to bookmark or delete")
             
             // dk how to update list .onChange()
@@ -51,20 +59,17 @@ struct SearchView: View {
     }
     
     func getBusStopsByRoadName() async {
-        let url = URL(string: "\(Env.baseURL)/busstops/name/\(roadName)")!
+        if roadName.isEmpty {
+            return
+        }
         
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            // response is array of json. [{BusStop}, {BusStop}]
-            let busStopsDecoded = try JSONDecoder().decode([BusStop].self, from: data)
-            
-            busStops = busStopsDecoded
-        } catch {
-            print("GET request failed: \(error.localizedDescription)")
-            print(String(describing: error))
-            
-            showAlert = true
-            alertMessage = "Server error: \(error.localizedDescription)"
+        Utilities.getBusStopsByRoadName(roadName: roadName) { stops, error in
+            if let stops = stops {
+                busStops = stops
+            } else if let error = error {
+                showAlert = true
+                alertMessage = "Server error: \(error.localizedDescription)"
+            }
         }
     }
 }

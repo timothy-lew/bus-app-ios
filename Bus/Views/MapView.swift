@@ -37,11 +37,11 @@ struct MapView: View {
             List {
                 Section(busNumber) {
                     HStack {
-                        getBusTime(for: nextBus.estimatedArrival, load: nextBus.load)
+                        Utilities.getBusTime(for: nextBus.estimatedArrival, load: nextBus.load)
                         Spacer()
-                        getBusTime(for: nextBus2.estimatedArrival, load: nextBus2.load)
+                        Utilities.getBusTime(for: nextBus2.estimatedArrival, load: nextBus2.load)
                         Spacer()
-                        getBusTime(for: nextBus3.estimatedArrival, load: nextBus3.load)
+                        Utilities.getBusTime(for: nextBus3.estimatedArrival, load: nextBus3.load)
                     }
                 }
             }
@@ -83,58 +83,14 @@ struct MapView: View {
         
     }
     
-    func getBusTime(for estimatedArrival: String, load: String) -> some View {
-        if estimatedArrival.isEmpty {
-            return Text("NA").foregroundStyle(.black)
-        }
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-        
-        var timeDifference = 0.0
-        var isArriving = false
-        
-        if let time = dateFormatter.date(from: estimatedArrival) {
-            // Get the current date and time
-            // 2023-11-25 12:38:55 +0000
-            let currentDate = Date()
-            
-            // Calculate the time difference
-            timeDifference = time.timeIntervalSince(currentDate) / 60
-            if timeDifference <= 1 {
-                isArriving = true
-            }
-        } else {
-            print("Failed to parse the specific date: \(estimatedArrival)")
-        }
-        
-        var colour = Color(.black)
-        
-        switch load {
-            case "SEA": colour = .green
-            case "SDA": colour = .orange
-            case "LSD": colour = .red
-            default: colour = .primary
-        }
-        
-        return isArriving ? Text("ARR").foregroundStyle(colour) : Text(String(Int(round(timeDifference)))).foregroundStyle(colour)
-    }
-    
     func getBusStopByCode() async {
-        let url = URL(string: "\(Env.baseURL)/busstop/code/\(busStopCode)")!
-        
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            // response is array of json. [{BusStop}, {BusStop}]
-            let busStopsDecoded = try JSONDecoder().decode(BusStop.self, from: data)
-            
-            busStop = busStopsDecoded
-        } catch {
-            print("GET request failed: \(error.localizedDescription)")
-            print(String(describing: error))
-            
-            showAlert = true
-            alertMessage = "Server error: \(error.localizedDescription)"
+        Utilities.getBusStopByCode(busStopCode: busStopCode) { stop, error in
+            if let stop = stop {
+                busStop = stop
+            } else if let error = error {
+                showAlert = true
+                alertMessage = "Server error: \(error.localizedDescription)"
+            }
         }
     }
 }
