@@ -4,6 +4,12 @@
 
 This iOS mobile application provides real-time bus arrival information for various bus stops in Singapore. Whether you're a daily commuter or an occasional bus traveler, this app helps you stay informed about bus timings to make your journeys more convenient.
 
+## Demo
+
+Click below for the video demonstration on youtube
+
+[![Watch the video](./thumbnail.png)](https://youtube.com/shorts/fc795Ws2uNw)
+
 ## Features
 
 - **Real-Time Bus Timings**: Get live updates on bus arrivals at your selected bus stops.

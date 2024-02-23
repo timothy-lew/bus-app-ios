@@ -26,7 +26,7 @@ struct NearbyView: View {
     var body: some View {
         VStack {
             if hasLocation {
-                Text("Latitude: \(latitude), Longitude: \(longitude)")
+            //    Text("Latitude: \(latitude), Longitude: \(longitude)")
             }
             else {
                 Text("Location not available. Please enable location services.")
