@@ -8,7 +8,7 @@ This iOS mobile application provides real-time bus arrival information for vario
 
 Click below for the video demonstration on youtube
 
-[![Watch the video](./thumbnail.png =200x)](https://youtube.com/shorts/fc795Ws2uNw)
+[![Watch the video](./thumbnail.png)](https://youtube.com/shorts/fc795Ws2uNw)
 
 ## Features
 
