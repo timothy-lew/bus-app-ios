@@ -10,3 +10,7 @@
 BASE_URL="https://bus.techdevglobal.com/api"
 //BASE_URL=http:localhost:3000
 TEST=PhysicalPhoneTest
+BUS_NUMBER_URL=https:/$()/wloaymjmvbyexy6olpahdbrvpa0pzvni.lambda-url.ap-southeast-1.on.aws
+ROAD_NAME_URL=https:/$()/pu3s2rvpxj5qs3snk4buqxan3e0axwqa.lambda-url.ap-southeast-1.on.aws
+BUS_CODE_URL=https:/$()/mgf4pdpibhupxtch6t3zmabsrm0xnvcy.lambda-url.ap-southeast-1.on.aws
+LAT_LONG_URL=https:/$()/jdvoizptejcncwksaewons67im0fkhyb.lambda-url.ap-southeast-1.on.aws
