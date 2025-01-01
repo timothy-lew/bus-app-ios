@@ -4,6 +4,14 @@
 <dict>
 	<key>BASE_URL</key>
 	<string>$(BASE_URL)</string>
+	<key>BUS_NUMBER_URL</key>
+	<string>$(BUS_NUMBER_URL)</string>
+	<key>ROAD_NAME_URL</key>
+	<string>$(ROAD_NAME_URL)</string>
+	<key>BUS_CODE_URL</key>
+	<string>$(BUS_CODE_URL)</string>
+	<key>LAT_LONG_URL</key>
+	<string>$(LAT_LONG_URL)</string>
 	<key>TEST</key>
 	<string>$(TEST)</string>
 </dict>

@@ -10,7 +10,8 @@ import SwiftUI
 
 class Utilities {
     static func getBusStopsByRoadName(roadName: String, completion: @escaping ([BusStop]?, Error?) -> Void) {
-        let url = URL(string: "\(Env.baseURL)/busstops/name/\(roadName)")!
+//        let url = URL(string: "\(Env.baseURL)/busstops/name/\(roadName)")!
+        let url = URL(string: "\(Env.roadNameURL)/?name=\(roadName)")!
         
         Task {
             do {
@@ -26,7 +27,8 @@ class Utilities {
     }
 
     static func getBusStopByCode(busStopCode: String, completion: @escaping (BusStop?, Error?) -> Void) {
-        let url = URL(string: "\(Env.baseURL)/busstop/code/\(busStopCode)")!
+//        let url = URL(string: "\(Env.baseURL)/busstop/code/\(busStopCode)")!
+        let url = URL(string: "\(Env.busCodeURL)/?code=\(busStopCode)")!
         
         Task {
             do {
@@ -42,7 +44,8 @@ class Utilities {
     }
     
     static func getBusesByCode(busStopCode: String, completion: @escaping (BusArrival?, Error?) -> Void) {
-        let url = URL(string: "\(Env.baseURL)/buses/code/\(busStopCode)")!
+//        let url = URL(string: "\(Env.baseURL)/buses/code/\(busStopCode)")!
+        let url = URL(string: "\(Env.busNumberURL)/?number=\(busStopCode)")!
         
         Task {
             do {
@@ -58,8 +61,8 @@ class Utilities {
     }
     
     static func getBusStopsByLatLong(latitude: String, longitude: String, completion: @escaping ([BusStop]?, Error?) -> Void) {
-        let url = URL(string: "\(Env.baseURL)/busstops/latlong/\(latitude)/\(longitude)")!
-        
+//        let url = URL(string: "\(Env.baseURL)/busstops/latlong/\(latitude)/\(longitude)")!
+        let url = URL(string: "\(Env.latLongURL)/?latitude=\(latitude)&longitude=\(longitude)")!
         Task {
             do {
                 let (data, _) = try await URLSession.shared.data(from: url)

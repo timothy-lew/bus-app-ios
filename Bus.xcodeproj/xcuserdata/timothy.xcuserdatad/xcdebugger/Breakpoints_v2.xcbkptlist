@@ -3,4 +3,102 @@
    uuid = "B33A6E13-0A54-45F2-AD10-D929327ACA99"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4426418C-EB2F-4699-83C3-777BE3532AF3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bus/Views/NearbyView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "getBusStopsByLatLong()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4426418C-EB2F-4699-83C3-777BE3532AF3 - 19f601ef9c41681"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Bus.NearbyView.getBusStopsByLatLong() async -&gt; ()"
+                  moduleName = "Bus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/timothy/Documents/personal_projects/bus-app/Bus/Bus/Views/NearbyView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "4426418C-EB2F-4699-83C3-777BE3532AF3 - f9f43e7d01c6f3b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;Bus.BusStop&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Bus.NearbyView.getBusStopsByLatLong() async -&gt; ()"
+                  moduleName = "Bus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/timothy/Documents/personal_projects/bus-app/Bus/Bus/Views/NearbyView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "76">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5DA790FD-38C0-4C33-8AE3-991A3364A5D3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bus/Views/NearbyView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "getBusStopsByLatLong()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "503655C5-9503-4536-A4EA-100D16512170"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bus/Utilities.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "getBusStopsByLatLong(latitude:longitude:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F614C373-B0C6-4A86-8811-B8168FD1C6FC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bus/Utilities.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "getBusStopsByLatLong(latitude:longitude:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
